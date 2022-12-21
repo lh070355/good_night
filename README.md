@@ -1,5 +1,15 @@
 # Good Night
 
+- Please see the comments in code and commit historys.
+
+## Environments
+
+```bash
+ruby --version # ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-linux]
+rails --version # Rails 7.0.4
+cat /etc/issue # Ubuntu 18.04.1 LTS
+```
+
 - data model
     - reference
         - [ActiveRecord::ConnectionAdapters::SchemaStatements](https://api.rubyonrails.org/v7.0.4/classes/ActiveRecord/ConnectionAdapters/SchemaStatements.html#method-i-add_column)
@@ -46,6 +56,7 @@
             - reference
                 - [mysql - Order by column should have index or not? - Database Administrators Stack Exchange](https://dba.stackexchange.com/questions/11031/order-by-column-should-have-index-or-not)
 - APIs
+    - put general exception handlers in `ApplicationController` for simplicity
     - only accept the pre-defined parameters for security
     - RelationsController
         - `POST` /relation
