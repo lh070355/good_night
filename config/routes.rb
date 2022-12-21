@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  post '/relation', to: 'relations#create'
+  delete '/relation', to: 'relations#destroy'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  post '/period', to: 'periods#create'
+  put '/latest_period', to: 'periods#update_latest_one'
+  get '/followee/periods', to: 'periods#show_followee'
 end
