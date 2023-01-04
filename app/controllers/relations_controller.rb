@@ -4,9 +4,10 @@ class RelationsController < ApplicationController
     follower_id, followee_id = params.require([:follower_id, :followee_id])
 
     # #to_i for convert string id input to integer (e.g. "1".to_i == 1.to_i)
-    # if follower_id.to_i == followee_id.to_i
-    #   return render json: { error_msg: 'follower and followee cannot be the same' }, status: 400
-    # end
+    if follower_id.to_i == followee_id.to_i
+      Rails.logger.error('follower and followee are the same')
+      return render json: { error_msg: 'follower and followee cannot be the same' }, status: 400
+    end
 
     # if create duplicate relation, will raise ActiveRecord::RecordInvalid for fail in
     # uniqueness check

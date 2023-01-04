@@ -15,23 +15,28 @@ class ApplicationController < ActionController::API
 
   def record_not_found(exception)
     # 'records with the parameters passed not found'
+    Rails.logger.error(exception.message)
     render json: { error_msg: exception.message }, status: 400
   end
 
   def record_invalid(exception)
     # 'input validation failed, please check input restritions again'
+    Rails.logger.error(exception.message)
     render json: { error_msg: exception.message }, status: 400
   end
 
-  def parameter_missing
+  def parameter_missing(exception)
+    Rails.logger.error(exception.message)
     render json: { error_msg: 'one or more paramters missing, please check again' }, status: 400
   end
 
-  def argument_error
+  def argument_error(exception)
+    Rails.logger.error(exception.message)
     render json: { error_msg: 'please check input type' }, status: 400
   end
 
-  def no_method_error
+  def no_method_error(exception)
+    Rails.logger.error(exception.message)
     render json: { error_msg: 'please check input type' }, status: 400
   end
 
